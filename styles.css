@@ -806,3 +806,17 @@ footer {
         height: 150px;
     }
 }
+@keyframes terminal-blink {
+    0%, 100% { border-color: var(--primary); }
+    50% { border-color: rgba(46, 218, 203, 0.3); }
+}
+
+.cmd-preview span {
+    display: inline-block;
+    animation: key-pulse 1s infinite;
+}
+
+@keyframes key-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+}
