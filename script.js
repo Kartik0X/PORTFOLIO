@@ -120,54 +120,53 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Konami code implementation
-    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 
-                        'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 
-                        'KeyB', 'KeyA'];
-    let konamiIndex = 0;
-
-    document.addEventListener('keydown', (e) => {
-        if (e.code === konamiCode[konamiIndex]) {
-            konamiIndex++;
-            
-            if (konamiIndex === konamiCode.length) {
-                // Activate special particle effects
-                particlesJS('particles-js', {
-                    particles: {
-                        number: { value: 150, density: { enable: true, value_area: 800 } },
-                        color: { value: "#ff4d5a" },
-                        shape: { type: "triangle" },
-                        opacity: { value: 0.8, random: true },
-                        size: { value: 5, random: true },
-                        line_linked: { 
-                            enable: true, 
-                            distance: 100, 
-                            color: "#ff4d5a", 
-                            opacity: 0.8, 
-                            width: 2 
+        // sudo su code implementation
+        const rootCode = ['KeyS', 'KeyU', 'KeyD', 'KeyO', 'Space', 'KeyS', 'KeyU']; // sudo su
+        let rootIndex = 0;
+    
+        document.addEventListener('keydown', (e) => {
+            if (e.code === rootCode[rootIndex]) {
+                rootIndex++;
+                
+                if (rootIndex === rootCode.length) {
+                    // Activate special particle effects
+                    particlesJS('particles-js', {
+                        particles: {
+                            number: { value: 150, density: { enable: true, value_area: 800 } },
+                            color: { value: "#ff4d5a" },
+                            shape: { type: "triangle" },
+                            opacity: { value: 0.8, random: true },
+                            size: { value: 5, random: true },
+                            line_linked: { 
+                                enable: true, 
+                                distance: 100, 
+                                color: "#ff4d5a", 
+                                opacity: 0.8, 
+                                width: 2 
+                            },
+                            move: { 
+                                enable: true, 
+                                speed: 8, 
+                                direction: "none", 
+                                random: true, 
+                                straight: false, 
+                                out_mode: "out" 
+                            }
                         },
-                        move: { 
-                            enable: true, 
-                            speed: 8, 
-                            direction: "none", 
-                            random: true, 
-                            straight: false, 
-                            out_mode: "out" 
+                        interactivity: {
+                            detect_on: "canvas",
+                            events: {
+                                onhover: { enable: true, mode: "bubble" },
+                                onclick: { enable: true, mode: "push" }
+                            }
                         }
-                    },
-                    interactivity: {
-                        detect_on: "canvas",
-                        events: {
-                            onhover: { enable: true, mode: "bubble" },
-                            onclick: { enable: true, mode: "push" }
-                        }
-                    }
-                });
-
-                alert("1337 H4X0R M0D3 Activated! 🔥");
-                konamiIndex = 0;
+                    });
+    
+                    alert("ROOT ACCESS GRANTED! 🔥");
+                    rootIndex = 0;
+                }
+            } else {
+                rootIndex = 0;
             }
-        } else {
-            konamiIndex = 0;
-        }
-    });
+        });
 });
